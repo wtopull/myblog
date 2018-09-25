@@ -14,11 +14,17 @@ module.exports = {
     ]
   },
   /*
-  ** Customize the progress bar color
+  ** Customize the progress bar color 自定义进度条颜色
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#802125' },
+  css:[
+    {
+      src: 'assets/css/reset.scss',
+      lang: 'scss'
+    }
+  ],
   /*
-  ** Build configuration
+  ** Build configuration 构建配置
   */
   build: {
     /*
@@ -36,4 +42,3 @@ module.exports = {
     }
   }
 }
-

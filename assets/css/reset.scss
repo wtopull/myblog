@@ -1,0 +1,94 @@
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+.clearfix:after,
+.clearfix:before,
+body:after,
+body:before {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+body {
+  font-size: 12px;
+  font-family: -apple-system,
+    BlinkMacSystemFont,
+    Helvetica Neue,
+    Helvetica,
+    Roboto,
+    Arial,
+    PingFang SC,
+    Hiragino Sans GB,
+    Microsoft Yahei,
+    Microsoft Jhenghei,
+    sans-serif;
+  color: #333;
+}
+
+body,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+img {
+  vertical-align: bottom;
+  border: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+strong,
+b,
+th {
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+input {
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  overflow: auto;
+}
+
+html,
+body,
+  {
+  width: 100%;
+  height: 100%;
+}
+#__nuxt,
+#__layout {
+  width: 100%;
+  height: 100%;
+}
