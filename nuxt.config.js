@@ -1,7 +1,5 @@
 module.exports = {
-  /*
-  ** Headers of the page
-  */
+  /* Headers of the page */
   head: {
     title: 'myblog',
     meta: [
@@ -13,23 +11,19 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  /*
-  ** Customize the progress bar color 自定义进度条颜色
-  */
-  loading: { color: '#802125' },
+  /* Customize the progress bar color 自定义进度条颜色 */
+  loading: {
+    color: '#F5F5F5'
+  },
   css:[
     {
       src: 'assets/css/reset.scss',
       lang: 'scss'
     }
   ],
-  /*
-  ** Build configuration 构建配置
-  */
+  /* Build configuration 构建配置 */
   build: {
-    /*
-    ** Run ESLint on save
-    */
+    /* Run ESLint on save */
     extend (config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({

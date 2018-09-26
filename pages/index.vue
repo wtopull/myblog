@@ -1,19 +1,17 @@
 <template>
-  <section class="container">
-    <div>
-      <h1 class="title">
-        ffffffff
-      </h1>
-    </div>
-  </section>
+  <section class="container">home.index</section>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+  methods: {}
+};
 </script>
-<style>
+<style lang='scss' scoped>
 html,
-body,
-  {
+body {
   width: 100%;
   height: 100%;
 }
