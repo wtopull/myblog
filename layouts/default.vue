@@ -6,8 +6,12 @@
         <div class="leftTop">
           <img src="~/assets/img/1.jpg" alt="">
         </div>
-          <div class="titleP">Nathan's blog</div>
+          <div class="titleP">Nathan</div>
           <navs></navs>
+          <div class="title">
+            <h4>一句话：</h4>
+            <small>技术不行，多模仿啊？！</small>
+          </div>
         </div>
       </div>
       <div class="right" :class="hidePop ? 'center':''">
@@ -16,11 +20,11 @@
     </div>
 </template>
 <script>
-import navs from '../components/navs.vue'
+import navs from "../components/navs.vue";
 export default {
   data() {
     return {
-      hidePop: false,
+      hidePop: false
     };
   },
   methods: {
@@ -28,7 +32,7 @@ export default {
       this.hidePop = !this.hidePop;
     }
   },
-  components:{
+  components: {
     navs
   }
 };
@@ -40,6 +44,11 @@ export default {
   height: 100%;
 }
 .left {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
   width: 16%;
   height: 100%;
   float: left;
@@ -63,6 +72,38 @@ export default {
     background: #787878;
     cursor: pointer;
   }
+  & .title {
+    margin: 200px 0 100px;
+    padding: 20px;
+    font-style: italic;
+    & h4 {
+      line-height: 48px;
+      font-size: 20px;
+    }
+    & small {
+      font-size: 16px;
+      color: steelblue;
+    }
+  }
+}
+.detail,
+.left {
+  min-height: 799px;
+}
+.leftTop {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 66px auto 20px;
+}
+.titleP {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #802125;
+  height: 48px;
+  line-height: 48px;
 }
 .left.hide {
   width: 0;
@@ -94,23 +135,8 @@ export default {
   -moz-box-shadow: 1px 1px 40px #787878;
   -webkit-box-shadow: 1px 1px 40px #787878;
   box-shadow: 1px 1px 40px #787878;
-  > section{
+  > section {
     min-height: 799px;
   }
-}
-.leftTop {
-  width: 168px;
-  height: 168px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 66px auto 20px;
-}
-.titleP {
-  text-align: center;
-  font-size: 28px;
-  font-weight: 700;
-  color: #802125;
-  height: 48px;
-  line-height: 48px;
 }
 </style>
