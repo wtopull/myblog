@@ -1,7 +1,7 @@
 <template>
   <div class="navs">
     <ul>
-      <li :class="index == active && is?'active':''" v-for="(nav,index) in navs" :key="index" @mouseover="stylesing()" @mouseout='stylesout()' @click="navBall(nav,index)">[&nbsp;&nbsp;&nbsp;{{nav.name}}&nbsp;&nbsp;&nbsp;]</li>
+      <li :class="index == $store.state.active && is?'active':''" v-for="(nav,index) in navs" :key="index" @mouseover="stylesing()" @mouseout='stylesout()' @click="navBall(nav,index)">[&nbsp;&nbsp;&nbsp;{{nav.name}}&nbsp;&nbsp;&nbsp;]</li>
     </ul>
   </div>
 </template>
@@ -9,7 +9,6 @@
 export default {
   data() {
     return {
-      active:0,
       is:true,
       navs: [
         { name: "HOME", path: "/" },
@@ -22,7 +21,7 @@ export default {
   methods: {
     navBall(nav, index) {
       this.$router.push(nav.path);
-      this.active = index;
+      this.$store.state.active = index;
     },
     stylesing(){
       this.is = false;

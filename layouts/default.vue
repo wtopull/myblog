@@ -7,16 +7,18 @@
           <img src="~/assets/img/1.jpg" alt="">
         </div>
           <div class="titleP">Nathan</div>
-          <navs></navs>
+          <navs v-if="!hidePop"></navs>
           <div class="title">
             <h4>一句话：</h4>
-            <small>技术不行，多模仿啊？！</small>
+            <small>还不行？去多模仿啊？！</small>
           </div>
         </div>
       </div>
       <div class="right" :class="hidePop ? 'center':''">
         <nuxt />
+        <navs v-if="hidePop" class="popNavs"></navs>
       </div>
+      <div class="toTop" v-if="sTop" @click="toTopBall">top</div>
     </div>
 </template>
 <script>
@@ -24,10 +26,33 @@ import navs from "../components/navs.vue";
 export default {
   data() {
     return {
-      hidePop: false
+      hidePop: false,
+      sTop:false
     };
   },
+  mounted(){
+    this.$nextTick(function () {
+      window.addEventListener('scroll', this.handleScroll)
+    })
+  },
   methods: {
+    handleScroll() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if(scrollTop > 45){
+        this.sTop = true;
+      }else if(scrollTop < 20){
+        this.sTop =false;
+      }
+    },
+    //回到顶部
+    toTopBall(){
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if(scrollTop > 45){
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        window.pageYOffset = 0;
+      }
+    },
     isShowPop() {
       this.hidePop = !this.hidePop;
     }
@@ -41,6 +66,7 @@ export default {
 <style lang='scss' scoped>
 .blogBox {
   width: 100%;
+  min-width: 1200px;
   height: 100%;
 }
 .left {
@@ -71,6 +97,9 @@ export default {
     color: #fff;
     background: #787878;
     cursor: pointer;
+  }
+  & .leftPop:hover{
+    background: #5691d7;
   }
   & .title {
     margin: 200px 0 100px;
@@ -124,6 +153,7 @@ export default {
   overflow: hidden;
   overflow-y: scroll;
   padding: 10px 16px;
+  position: relative;
 }
 .right.center {
   width: 1200px;
@@ -138,5 +168,25 @@ export default {
   > section {
     min-height: 799px;
   }
+}
+.popNavs{
+  width: 160px;
+  position: absolute;
+  right: -180px;
+  top: 0px;
+}
+.toTop{
+  position:fixed;
+  bottom:20px;
+  right: 20px;
+  background: #787878;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  line-height: 66px;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
 }
 </style>
