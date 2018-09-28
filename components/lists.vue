@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <div class="listBox" v-for="(item,index) in lists" :key="index">
+    <div class="listBox" v-for="(item,index) in listItem" :key="index">
       <div class="title">
         <h1>{{item.title}}</h1><small>{{item.date}}</small>
       </div>
@@ -16,14 +16,17 @@
 </template>
 <script>
 export default {
-  props: {
-    lists: Array
+  data(){
+    return{
+      listItem:null
+    }
+  },
+  mounted(){
+    this.listItem = JSON.parse(localStorage.getItem("listItem"));
   },
   methods: {
     toDetail(item, index) {
       this.$router.push(item.toball);
-      this.$store.state.listItem = item;
-      this.$store.state.listIndex = index;
     }
   }
 };
@@ -87,3 +90,4 @@ export default {
   }
 }
 </style>
+

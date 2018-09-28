@@ -7,47 +7,53 @@
           <img src="~/assets/img/1.jpg" alt="">
         </div>
           <div class="titleP">Nathan</div>
-          <navs v-if="!hidePop"></navs>
+          <!-- <navs v-if="!hidePop"></navs> -->
           <div class="title">
-            <h4>一句话：</h4>
+            <h4>那句话：</h4>
             <small>还不行？去多模仿啊？！</small>
           </div>
         </div>
       </div>
-      <div class="right" :class="hidePop ? 'center':''">
-        <nuxt />
-        <navs v-if="hidePop" class="popNavs"></navs>
+      <div class="right clearfix" :class="hidePop ? 'center':''">
+        <nuxt style='width:80%;float:left;' />
+        <navs class="popNavs"></navs>
       </div>
       <div class="toTop" v-if="sTop" @click="toTopBall">top</div>
     </div>
 </template>
 <script>
-import navs from "../components/navs.vue";
+import navs from "~/components/navs.vue";
 export default {
   data() {
     return {
-      hidePop: false,
-      sTop:false
+      hidePop: true,
+      sTop: false
     };
   },
-  mounted(){
-    this.$nextTick(function () {
-      window.addEventListener('scroll', this.handleScroll)
-    })
+  mounted() {
+    this.$nextTick(function() {
+      window.addEventListener("scroll", this.handleScroll);
+    });
   },
   methods: {
     handleScroll() {
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-      if(scrollTop > 45){
+      var scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+      if (scrollTop > 45) {
         this.sTop = true;
-      }else if(scrollTop < 20){
-        this.sTop =false;
+      } else if (scrollTop < 20) {
+        this.sTop = false;
       }
     },
     //回到顶部
-    toTopBall(){
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-      if(scrollTop > 45){
+    toTopBall() {
+      var scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+      if (scrollTop > 45) {
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
         window.pageYOffset = 0;
@@ -98,7 +104,7 @@ export default {
     background: #787878;
     cursor: pointer;
   }
-  & .leftPop:hover{
+  & .leftPop:hover {
     background: #5691d7;
   }
   & .title {
@@ -169,15 +175,17 @@ export default {
     min-height: 799px;
   }
 }
-.popNavs{
-  width: 160px;
-  position: absolute;
-  right: -180px;
-  top: 0px;
+.popNavs {
+  width:16%;
+  float:right;
+  margin-top:62px;
+  padding: 6px;
+  background: rgba(160, 197, 232, 0.2);
+  border-radius: 4px;
 }
-.toTop{
-  position:fixed;
-  bottom:20px;
+.toTop {
+  position: fixed;
+  bottom: 20px;
   right: 20px;
   background: #787878;
   width: 66px;
