@@ -14,8 +14,12 @@
           </div>
         </div>
       </div>
+
       <div class="right clearfix" :class="hidePop ? 'center':''">
-        <nuxt style='width:80%;float:left;' />
+        <keep-alive>
+          <nuxt style='width:80%;float:left;' />
+        </keep-alive>
+        
         <navs class="popNavs"></navs>
       </div>
       <div class="toTop" v-if="sTop" @click="toTopBall">top</div>
@@ -176,7 +180,7 @@ export default {
   }
 }
 .popNavs {
-  width:16%;
+  width:20%;
   float:right;
   margin-top:62px;
   padding: 6px;

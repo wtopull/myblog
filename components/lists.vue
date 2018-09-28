@@ -6,7 +6,7 @@
       </div>
       <div class="img" :style="{backgroundImage:'url('+item.img+')'}"></div>
       <div class="content">
-        <p>{{item.content}}</p>
+        <p v-html="item.content"></p>
       </div>
       <div class="toball">
         <button @click="toDetail(item,index)">阅读全文</button>
@@ -26,6 +26,7 @@ export default {
   },
   methods: {
     toDetail(item, index) {
+      localStorage.setItem('item',JSON.stringify(item));
       this.$router.push(item.toball);
     }
   }
@@ -43,7 +44,7 @@ export default {
   }
   & small {
     margin-left: 28px;
-    line-height: 28px;
+    line-height: 28px; 
   }
 }
 .img {
