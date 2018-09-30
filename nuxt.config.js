@@ -3,7 +3,6 @@ const isDev = NODE_ENV === 'development'
 const extend = require('./build/webpack.extend')
 const router = require('./build/router')
 module.exports = {
-  /* Headers of the page */
   head: {
     title: 'myblog',
     meta: [
