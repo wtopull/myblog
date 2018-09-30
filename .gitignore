@@ -1,11 +1,16 @@
 # dependencies
 node_modules
-
+*.nuxt
 # logs
 npm-debug.log
 
-# Nuxt build
-*.nuxt
 
 # Nuxt generate
 dist
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
