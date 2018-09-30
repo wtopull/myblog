@@ -28,6 +28,19 @@ module.exports = {
       lang: 'scss'
     }
   ],
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3100'
+  },
+  dev: (process.env.NODE_ENV !== 'production'),
+  performance: {
+    gzip: true,
+    prefetch: true
+  },
+  filenames: {
+    vendor: 'vendor.[hash].js',
+    app: 'app.[chunkhash].js'
+  },
+  // plugins: ['~plugins/vue-notifications'],
   axios: {
     prefix: '/api',
     proxy: true,
@@ -35,7 +48,7 @@ module.exports = {
   },
   proxy: {
     '/api/': {
-      target: 'http://localhost:3100',
+      target: 'http://localhost:27017',
       pathRewrite: {
         '^/api/': ''
       }
