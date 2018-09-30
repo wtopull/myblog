@@ -1,7 +1,7 @@
 # dependencies
 node_modules
 .vscode
-*.nuxt
+*.nuxt*
 # logs
 npm-debug.log
 .idea

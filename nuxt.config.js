@@ -1,7 +1,3 @@
-const NODE_ENV = process.env.NODE_ENV
-const isDev = NODE_ENV === 'development'
-const extend = require('./build/webpack.extend')
-const router = require('./build/router')
 module.exports = {
   head: {
     title: 'myblog',
@@ -32,6 +28,19 @@ module.exports = {
       lang: 'scss'
     }
   ],
+  axios: {
+    prefix: '/api',
+    proxy: true,
+    progress: false, //requests is too more
+  },
+  proxy: {
+    '/api/': {
+      target: 'http://localhost:3100',
+      pathRewrite: {
+        '^/api/': ''
+      }
+    }
+  },
   /* Build configuration 构建配置 */
   build: {
     /* Run ESLint on save */
@@ -57,8 +66,6 @@ module.exports = {
         name: 'img/[name].[hash].[ext]'
       }
     }],
-    presets: [['vue-app', { targets: isDev ? { chrome: 66} : { ie: 10} }]],
-    vendor: ['axios'],
     cache: {max: 1000,maxAge: 1000 * 60 * 60},
     publicPath: '/.nuxt/dist/',
   }
