@@ -34,9 +34,9 @@ export default {
     font-size: 24px;
   }
   & p.date{
-    width: 200px;
     margin: 12px auto 28px;
     font-size: 14px;
+    text-align: center;
   }
   & .content{
     & p.pBox{
