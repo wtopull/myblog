@@ -10,7 +10,7 @@ export const navs = [
     path: '?id=1',
     childers: [
       {
-        name: 'Vue || Nuxt',
+        name: 'Vue',
         path: '/vue?id=1',
         list: [
           {
@@ -64,7 +64,7 @@ export const navs = [
         ],
       },
       {
-        name: 'Node || Mongo',
+        name: 'Node',
         path: '/node?id=1',
         list: [
           {

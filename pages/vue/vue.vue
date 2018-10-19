@@ -9,6 +9,10 @@
       <div class="footer">
         <p>------------------------ <span>完结</span> ------------------------</p>
       </div>
+      <div class="footNav">
+        <div class="footNavLeft"><span>上一篇：</span><p>Vue学习路径1-轻松从基础到实战</p></div>
+        <div class="footNavRight"><span>下一篇：</span><p>Vue学习路径2-轻松从基础到实战</p></div>
+      </div>
     </div>
   </section>
 </template>
@@ -54,6 +58,20 @@ export default {
       font-size:24px;
       margin: 0px 12px;
     }
+  }
+}
+.footNav{
+  & .footNavLeft,.footNavRight{
+    float: left;
+    & span{
+      margin-right: 20px;
+    }
+    & p{
+      display:inline-block;
+    }
+  }
+  & .footNavRight{
+    float:right;
   }
 }
 </style>

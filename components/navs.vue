@@ -17,25 +17,29 @@ import { navs } from "~/plugins/navs.js";
 export default {
   data() {
     return {
-      ck:-1,
-      num:0,
+      ck: -1,
+      num: 0,
       is: true,
       navs: navs,
-      active:0
+      active: 0
     };
   },
   methods: {
-    showChilder(nav,index){
+    showChilder(nav, index) {
       this.num = index;
     },
-    toroute(nav,index){
+    //类别选择
+    toroute(nav, index) {
       this.active = index;
       this.$router.push(nav.path);
       this.ck = -1;
     },
-    navBall(item,k) {
+    //类别项选择
+    navBall(item, k) {
+      console.log(item);
+      
       this.ck = k;
-      localStorage.setItem("listItem",JSON.stringify(item.list));
+      localStorage.setItem("listItem", JSON.stringify(item.list));
       this.$router.push(item.path);
     },
     stylesing() {
@@ -57,9 +61,9 @@ export default {
       line-height: 32px;
       text-align: left;
       cursor: pointer;
-      & span{
+      & span {
         display: inline-block;
-        width:100%;
+        width: 100%;
         height: 100%;
         padding-left: 12px;
       }
@@ -73,18 +77,18 @@ export default {
       font-size: 16px;
     }
   }
-  & ul.childer{
+  & ul.childer {
     display: none;
     width: 100%;
     margin: 0 auto;
     font-size: 12px;
-    & .childerLi{
+    & .childerLi {
       height: 32px;
       line-height: 32px;
-      & .childerSpan{
+      & .childerSpan {
         margin-left: 12px;
       }
-      & .childerSpan.active{
+      & .childerSpan.active {
         cursor: pointer;
         background: rgba(160, 197, 232, 0.5);
         border-left: 4px solid rgb(16, 132, 240);
@@ -97,9 +101,9 @@ export default {
     }
   }
 }
-.parentLi.show{
+.parentLi.show {
   background: rgba(160, 197, 232, 0.5);
-  ul.childer{
+  ul.childer {
     display: block;
     position: relative;
   }
